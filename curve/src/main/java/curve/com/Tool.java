@@ -38,7 +38,6 @@ public class Tool {
         return max;
     }
 
-
     public static CurveStorage getLocationValue(List<CurveStorage>curveStorages,int currentLocationX) {
         double min = 500;
         double position =0;
