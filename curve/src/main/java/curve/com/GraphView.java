@@ -52,6 +52,7 @@ public class GraphView extends LinearLayout {
         setOrientation(HORIZONTAL);
         curveView = new CurveView(getContext());
         HorizontalScrollView horizontalScrollView = new HorizontalScrollView(getContext());
+        horizontalScrollView.setHorizontalScrollBarEnabled(false);
         linearLayout = new LinearLayout(getContext());
         horizontalScrollView.addView(linearLayout);
         normalView = new NormalView(getContext());
