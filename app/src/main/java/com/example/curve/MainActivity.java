@@ -2,6 +2,7 @@ package com.example.curve;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,11 +39,17 @@ public class MainActivity extends AppCompatActivity {
         for (int i=0;i<arrayList.size();i++){
              dateStorage = new DateStorage();
              dateStorage.value =arrayList.get(i);
-             dateStorage.date ="6/"+i;
+             String demo= "2017-06-"+i;
+             dateStorage.date = edit(demo);
              dateStorages.add(dateStorage);
         }
-
-
         graphView.setDateStorage(dateStorages);
+
+    }
+
+    private  String   edit(String date){
+        date = date.substring(5,date.length());
+        Log.e("date",date);
+        return date;
     }
 }

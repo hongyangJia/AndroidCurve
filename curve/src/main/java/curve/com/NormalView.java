@@ -34,6 +34,8 @@ public class NormalView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
+        if (storages==null)return;
+        if (storages.size()==0)return;
         Paint paint = new Paint();
         paint.setTextSize(TEXT_SIZE);
         paint.setColor(Color.BLACK);

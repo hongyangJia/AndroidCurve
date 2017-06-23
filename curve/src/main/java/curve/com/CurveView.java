@@ -67,6 +67,7 @@ public class CurveView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         if (dateStorages == null) return;
+        if (dateStorages.size()==0)return;
         Paint paint = new Paint();
         onDrawBackground(paint, canvas);
         onDrawText(paint, canvas);
