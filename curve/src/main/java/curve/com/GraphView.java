@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
@@ -34,6 +35,7 @@ public class GraphView extends LinearLayout {
     private List<CurveStorage> annotateStorages;
     private LinearLayout linearLayout;
     private NormalView normalView;
+    private HorizontalScrollView horizontalScrollView;
     private CurveView curveView;
 
     public GraphView(Context context) {
@@ -51,12 +53,12 @@ public class GraphView extends LinearLayout {
     private  void init(){
         setOrientation(HORIZONTAL);
         curveView = new CurveView(getContext());
-        HorizontalScrollView horizontalScrollView = new HorizontalScrollView(getContext());
+        horizontalScrollView = new HorizontalScrollView(getContext());
         horizontalScrollView.setHorizontalScrollBarEnabled(false);
         linearLayout = new LinearLayout(getContext());
         horizontalScrollView.addView(linearLayout);
         normalView = new NormalView(getContext());
-        addView(normalView,new ViewGroup.LayoutParams(dayWidth+20,dayHeight*7));
+        addView(normalView,new ViewGroup.LayoutParams(dayWidth+30,dayHeight*7));
         addView(horizontalScrollView);
     }
 

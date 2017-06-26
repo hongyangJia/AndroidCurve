@@ -180,7 +180,7 @@ public class CurveView extends View {
     private void viewValue(double locationX) {
         currentValue = Tool.getLocationValue(curveStorages, (int) locationX);
         isValue = true;
-        invalidate(currentValue.locationX - bitmap.getHeight(), currentValue.locationY - bitmap.getHeight(), currentValue.locationX, currentValue.locationY);
+        invalidate();
     }
 
     @Override
