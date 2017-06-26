@@ -16,6 +16,7 @@ import curve.com.GraphView;
 public class MainActivity extends AppCompatActivity {
 
     private  GraphView graphView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
