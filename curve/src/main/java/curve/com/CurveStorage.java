@@ -9,8 +9,8 @@ import android.os.Parcelable;
 
 public class CurveStorage implements Parcelable {
 
-    public int locationX;
-    public int locationY;
+    public Double locationX;
+    public Double locationY;
     public Double value;
 
 
@@ -21,8 +21,8 @@ public class CurveStorage implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(this.locationX);
-        dest.writeInt(this.locationY);
+        dest.writeValue(this.locationX);
+        dest.writeValue(this.locationY);
         dest.writeValue(this.value);
     }
 
@@ -30,8 +30,8 @@ public class CurveStorage implements Parcelable {
     }
 
     protected CurveStorage(Parcel in) {
-        this.locationX = in.readInt();
-        this.locationY = in.readInt();
+        this.locationX = (Double) in.readValue(Double.class.getClassLoader());
+        this.locationY = (Double) in.readValue(Double.class.getClassLoader());
         this.value = (Double) in.readValue(Double.class.getClassLoader());
     }
 

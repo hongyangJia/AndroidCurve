@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         arrayList.add(73.9);
         arrayList.add(73.0);
         arrayList.add(73.6);
+        arrayList.add(73.6);
         arrayList.add(72.8);
         arrayList.add(72.7);
         arrayList.add(72.5);
@@ -36,6 +37,11 @@ public class MainActivity extends AppCompatActivity {
         arrayList.add(73.3);
         arrayList.add(73.1);
         arrayList.add(74.1);
+        arrayList.add(73.6);
+        arrayList.add(70.5);
+        arrayList.add(70.5);
+        arrayList.add(70.5);
+        arrayList.add(70.5);
         arrayList.add(73.6);
 
         for (int i=0;i<arrayList.size();i++){

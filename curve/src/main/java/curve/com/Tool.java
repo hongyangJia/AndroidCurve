@@ -43,7 +43,7 @@ public class Tool {
         double position =0;
         CurveStorage  curveStorage = new CurveStorage();
         for (int i = 0; i < curveStorages.size(); i++) {
-             int x=curveStorages.get(i).locationX-currentLocationX;
+             int x= (int) (curveStorages.get(i).locationX-currentLocationX);
                  x=Math.abs(x);
                 if (x<min){
                       min =x;

@@ -42,7 +42,7 @@ public class NormalView extends View {
         paint.setColor(Color.BLACK);
         paint.setAntiAlias(true);
         for (int i=0;i<storages.size();i++){
-            canvas.drawText(String.valueOf(storages.get(i).value+"KG"),storages.get(i).locationX,storages.get(i).locationY,paint);
+            canvas.drawText(String.valueOf(storages.get(i).value+"KG"), Float.parseFloat(String.valueOf(storages.get(i).locationX)),Float.parseFloat(String.valueOf(storages.get(i).locationY)),paint);
         }
         super.onDraw(canvas);
     }

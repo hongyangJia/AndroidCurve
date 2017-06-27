@@ -104,7 +104,7 @@ public class CurveView extends View {
         Tool.nullPointerException(dateStorages,"onDrawText : null");
         paint.reset();
         paint.setColor(Color.BLACK);
-        paint.setTextSize(((dayWidth+30)/4));
+        paint.setTextSize((float) ((dayWidth+30)/4.5));
         paint.setAntiAlias(true);
         for (int i = DUFULET; i < dateStorages.size(); i++) {
             canvas.drawText(dateStorages.get(i).date, dayWidth * i +15, (float) (dayHeight * ROW + dayHeight * 0.4 + dayHeightTop), paint);
@@ -127,8 +127,8 @@ public class CurveView extends View {
         paint.reset();
         paint.setStrokeWidth(STROKE_WIDTH);
         setPaintParameter(paint, new float[]{0,0}, Color.RED);
-        path.moveTo(curveStorages.get(position).locationX, curveStorages.get(position).locationY);
-        path.lineTo(curveStorages.get(position + 1).locationX, curveStorages.get(position + 1).locationY);
+        path.moveTo(Float.parseFloat(String.valueOf(curveStorages.get(position).locationX)),Float.parseFloat(String.valueOf(curveStorages.get(position).locationY)));
+        path.lineTo(Float.parseFloat(String.valueOf(curveStorages.get(position + 1).locationX)), Float.parseFloat(String.valueOf(curveStorages.get(position + 1).locationY)));
         canvas.drawPath(path, paint);
     }
 
@@ -139,15 +139,15 @@ public class CurveView extends View {
         path.moveTo(dayWidthLift, dayAllHeight);
         paint.setAlpha(ALPHA);
         LinearGradient lg = new LinearGradient(
-                Tool.getMaxLocation(curveStorages).locationX,
-                Tool.getMaxLocation(curveStorages).locationY,
-                Tool.getMaxLocation(curveStorages).locationX, dayAllHeight,
+                Float.parseFloat(String.valueOf(Tool.getMaxLocation(curveStorages).locationX)),
+                Float.parseFloat(String.valueOf(Tool.getMaxLocation(curveStorages).locationY)),
+                Float.parseFloat(String.valueOf(Tool.getMaxLocation(curveStorages).locationX)), dayAllHeight,
                 COLOR, Color.WHITE, Shader.TileMode.MIRROR);
         paint.setShader(lg);
         for (int i = DUFULET; i < curveStorages.size(); i++) {
-            path.lineTo(curveStorages.get(i).locationX, curveStorages.get(i).locationY);
+            path.lineTo(Float.parseFloat(String.valueOf(curveStorages.get(i).locationX)),Float.parseFloat(String.valueOf(curveStorages.get(i).locationY)));
         }
-        path.lineTo(curveStorages.get(curveStorages.size() - 1).locationX, dayAllHeight);
+        path.lineTo(Float.parseFloat(String.valueOf(curveStorages.get(curveStorages.size() - 1).locationX)), dayAllHeight);
         canvas.drawPath(path, paint);
     }
 
@@ -158,8 +158,8 @@ public class CurveView extends View {
         paint.setColor(Color.RED);
         paint.setTextSize((dayWidth+30)/3);
         paint.setAntiAlias(true);
-        canvas.drawBitmap(bitmap, currentValue.locationX - bitmap.getHeight(), currentValue.locationY - bitmap.getHeight(), paint);
-        canvas.drawText(String.valueOf(currentValue.value), currentValue.locationX - TWENTY_SIX, currentValue.locationY - bitmap.getHeight() / 2, paint);
+        canvas.drawBitmap(bitmap, Float.parseFloat(String.valueOf(currentValue.locationX - bitmap.getHeight())),Float.parseFloat(String.valueOf( currentValue.locationY - bitmap.getHeight())), paint);
+        canvas.drawText(String.valueOf(currentValue.value),Float.parseFloat(String.valueOf( currentValue.locationX - TWENTY_SIX)),Float.parseFloat(String.valueOf(currentValue.locationY - bitmap.getHeight() / 2)) , paint);
     }
 
     private void setPaintParameter(Paint paintParameter, float[] floats, int colors) {
@@ -173,7 +173,7 @@ public class CurveView extends View {
         paintParameter.reset();
         paintParameter.setAntiAlias(true);
         paintParameter.setColor(Color.RED);
-        canvas.drawCircle(curveStorages.get(position).locationX, curveStorages.get(position).locationY, CIRCLE, paintParameter);
+        canvas.drawCircle(Float.parseFloat(String.valueOf(curveStorages.get(position).locationX)), Float.parseFloat(String.valueOf(curveStorages.get(position).locationY)), CIRCLE, paintParameter);
     }
 
     private void viewValue(double locationX) {

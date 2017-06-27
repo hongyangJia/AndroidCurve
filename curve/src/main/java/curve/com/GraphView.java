@@ -22,7 +22,7 @@ import java.util.List;
 
 public class GraphView extends LinearLayout {
 
-    private static final int INTERVAL = 10;
+    private static final int INTERVAL = 5;
     private static final int ROW = 6;
     private static final int DUFULET = 0;
     private static final int SCREEN_WIDTH_ALLOCATION = 11;
@@ -95,12 +95,12 @@ public class GraphView extends LinearLayout {
 
     private void converter() {
         curveStorages = new ArrayList<>();
-        int number = (dayAllHeight - dayHeight) / (high - low);
+        int number = dayAllHeight / (high - low);
         CurveStorage curveStorage;
         for (int i = DUFULET; i < dateStorages.size(); i++) {
             curveStorage = new CurveStorage();
-            curveStorage.locationX = dayWidthLift+ dayWidth * i;
-            curveStorage.locationY = (int) ((dayHeight * ROW + dayHeightTop) - (dateStorages.get(i).value - low) * number);
+            curveStorage.locationX = (double) dayWidthLift+ dayWidth * i;
+            curveStorage.locationY =   ((dayAllHeight+ dayHeightTop) - (dateStorages.get(i).value - low) * number)+dayHeightTop;
             curveStorage.value = dateStorages.get(i).value;
             curveStorages.add(curveStorage);
         }
@@ -111,9 +111,9 @@ public class GraphView extends LinearLayout {
         CurveStorage curveStorage;
         for (int i = DUFULET; i < ROW; i++) {
             curveStorage = new CurveStorage();
-            curveStorage.locationX=dayWidth / ROW;
-            curveStorage.locationY=dayHeight * i+ 15+dayHeightTop;
-            curveStorage.value=(double) high - i * ((high - low) / 6);
+            curveStorage.locationX=(double)dayWidth/ ROW;
+            curveStorage.locationY=(double)dayHeight * i+ 15+dayHeightTop;
+            curveStorage.value=  (double)high - i * ((high - low) / 6);
             annotateStorages.add(curveStorage);
         }
     }
