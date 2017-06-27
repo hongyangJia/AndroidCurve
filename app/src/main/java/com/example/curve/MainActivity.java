@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         for (int i=0;i<arrayList.size();i++){
              dateStorage = new DateStorage();
              dateStorage.value =arrayList.get(i);
-             String demo= "2017-06-"+i;
+             String demo= "2017-06-"+i+1;
              dateStorage.date = edit(demo);
              dateStorages.add(dateStorage);
         }
