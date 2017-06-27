@@ -22,7 +22,7 @@ import java.util.List;
 
 public class GraphView extends LinearLayout {
 
-    private static final int INTERVAL = 5;
+    private static final int INTERVAL = 10;
     private static final int ROW = 6;
     private static final int DUFULET = 0;
     private static final int SCREEN_WIDTH_ALLOCATION = 11;
@@ -100,7 +100,7 @@ public class GraphView extends LinearLayout {
         for (int i = DUFULET; i < dateStorages.size(); i++) {
             curveStorage = new CurveStorage();
             curveStorage.locationX = (double) dayWidthLift+ dayWidth * i;
-            curveStorage.locationY =   ((dayAllHeight+ dayHeightTop) - (dateStorages.get(i).value - low) * number)+dayHeightTop;
+            curveStorage.locationY =   ((dayAllHeight+ dayHeightTop) - (dateStorages.get(i).value - low) * number);
             curveStorage.value = dateStorages.get(i).value;
             curveStorages.add(curveStorage);
         }
