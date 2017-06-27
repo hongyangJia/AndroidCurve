@@ -22,7 +22,7 @@ import java.util.List;
 
 public class GraphView extends LinearLayout {
 
-    private static final int INTERVAL = 5;
+    private static final int INTERVAL = 10;
     private static final int ROW = 6;
     private static final int DUFULET = 0;
     private static final int SCREEN_WIDTH_ALLOCATION = 11;
