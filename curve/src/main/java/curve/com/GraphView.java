@@ -97,7 +97,7 @@ public class GraphView extends LinearLayout {
         for (int i = DUFULET; i < dateStorages.size(); i++) {
             curveStorage = new CurveStorage();
             curveStorage.locationX = dayWidthLift+ dayWidth * i;
-            curveStorage.locationY = (int) ((dayHeight * ROW - dayHeight) - (dateStorages.get(i).value - low) * number + dayHeightTop);
+            curveStorage.locationY = (int) ((dayHeight * ROW - dayHeightTop) - (dateStorages.get(i).value - low) * number + dayHeightTop);
             curveStorage.value = dateStorages.get(i).value;
             curveStorages.add(curveStorage);
         }

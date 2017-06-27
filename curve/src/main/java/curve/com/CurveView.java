@@ -26,7 +26,7 @@ public class CurveView extends View {
     private static final int ROW = 6;
     private static final int DUFULET = 0;
     private static final int TEXT_SIZE = 32;
-    private static final int TWENTY_SIX = 32;
+    private static final int TWENTY_SIX = 45;
     private static final Paint.Style PAINT_STYLE = Paint.Style.STROKE;
     private static final int STROKE_WIDTH = 4;
     private static final int COLOR = Color.parseColor("#ffff0000");
@@ -104,7 +104,7 @@ public class CurveView extends View {
         Tool.nullPointerException(dateStorages,"onDrawText : null");
         paint.reset();
         paint.setColor(Color.BLACK);
-        paint.setTextSize((dayWidth+30)/4);
+        paint.setTextSize((float) ((dayWidth+30)/3.5));
         paint.setAntiAlias(true);
         for (int i = DUFULET; i < dateStorages.size(); i++) {
             canvas.drawText(dateStorages.get(i).date, dayWidth * i +15, (float) (dayHeight * ROW + dayHeight * 0.4 + dayHeightTop), paint);
@@ -156,7 +156,7 @@ public class CurveView extends View {
         if (currentValue == null) return;
         paint.reset();
         paint.setColor(Color.RED);
-        paint.setTextSize(TWENTY_SIX);
+        paint.setTextSize((dayWidth+30)/3);
         paint.setAntiAlias(true);
         canvas.drawBitmap(bitmap, currentValue.locationX - bitmap.getHeight(), currentValue.locationY - bitmap.getHeight(), paint);
         canvas.drawText(String.valueOf(currentValue.value), currentValue.locationX - TWENTY_SIX, currentValue.locationY - bitmap.getHeight() / 2, paint);
