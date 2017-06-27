@@ -23,21 +23,20 @@ public class MainActivity extends AppCompatActivity {
         final List<DateStorage> dateStorages = new ArrayList<>();
         DateStorage dateStorage;
         ArrayList<Double> arrayList = new ArrayList<>();
-        arrayList.add(40.5);
-        arrayList.add(42.5);
-        arrayList.add(41.5);
-        arrayList.add(44.5);
-        arrayList.add(46.5);
-        arrayList.add(46.5);
-        arrayList.add(50.5);
-        arrayList.add(51.5);
-        arrayList.add(57.5);
-        arrayList.add(62.5);
-        arrayList.add(64.5);
-        arrayList.add(42.5);
-        arrayList.add(51.5);
-        arrayList.add(41.5);
-        arrayList.add(41.5);
+        arrayList.add(73.9);
+        arrayList.add(73.0);
+        arrayList.add(73.6);
+        arrayList.add(72.8);
+        arrayList.add(72.7);
+        arrayList.add(72.5);
+        arrayList.add(72.9);
+        arrayList.add(73.7);
+        arrayList.add(73.5);
+        arrayList.add(73.4);
+        arrayList.add(73.3);
+        arrayList.add(73.1);
+        arrayList.add(74.1);
+        arrayList.add(73.6);
 
         for (int i=0;i<arrayList.size();i++){
              dateStorage = new DateStorage();

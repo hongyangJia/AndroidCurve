@@ -104,7 +104,7 @@ public class CurveView extends View {
         Tool.nullPointerException(dateStorages,"onDrawText : null");
         paint.reset();
         paint.setColor(Color.BLACK);
-        paint.setTextSize((float) ((dayWidth+30)/3.5));
+        paint.setTextSize(((dayWidth+30)/4));
         paint.setAntiAlias(true);
         for (int i = DUFULET; i < dateStorages.size(); i++) {
             canvas.drawText(dateStorages.get(i).date, dayWidth * i +15, (float) (dayHeight * ROW + dayHeight * 0.4 + dayHeightTop), paint);

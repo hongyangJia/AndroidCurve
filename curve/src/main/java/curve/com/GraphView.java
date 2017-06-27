@@ -110,7 +110,7 @@ public class GraphView extends LinearLayout {
             curveStorage = new CurveStorage();
             curveStorage.locationX=dayWidth / ROW;
             curveStorage.locationY=dayHeight * i+ 15+dayHeightTop;
-            curveStorage.value=(double) high - i * ((high - low) / INTERVAL);
+            curveStorage.value=(double) high - i * ((high - low) / 6);
             annotateStorages.add(curveStorage);
         }
     }
