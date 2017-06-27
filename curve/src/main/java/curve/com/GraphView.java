@@ -2,6 +2,9 @@ package curve.com;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Path;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -97,7 +100,7 @@ public class GraphView extends LinearLayout {
         for (int i = DUFULET; i < dateStorages.size(); i++) {
             curveStorage = new CurveStorage();
             curveStorage.locationX = dayWidthLift+ dayWidth * i;
-            curveStorage.locationY = (int) ((dayHeight * ROW - dayHeightTop) - (dateStorages.get(i).value - low) * number + dayHeightTop);
+            curveStorage.locationY = (int) ((dayHeight * ROW + dayHeightTop) - (dateStorages.get(i).value - low) * number);
             curveStorage.value = dateStorages.get(i).value;
             curveStorages.add(curveStorage);
         }
