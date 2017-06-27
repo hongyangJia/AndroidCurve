@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import java.util.List;
@@ -17,7 +18,6 @@ import java.util.List;
 public class NormalView extends View {
 
     private List<CurveStorage> storages;
-    private static final int TEXT_SIZE = 32;
 
     public NormalView(Context context) {
         super(context);
@@ -30,6 +30,7 @@ public class NormalView extends View {
     public void setNormalStorage(List<CurveStorage> storages){
         this.storages=storages;
         invalidate();
+
     }
 
     @Override
@@ -37,7 +38,7 @@ public class NormalView extends View {
         if (storages==null)return;
         if (storages.size()==0)return;
         Paint paint = new Paint();
-        paint.setTextSize(TEXT_SIZE);
+        paint.setTextSize(canvas.getWidth()/4);
         paint.setColor(Color.BLACK);
         paint.setAntiAlias(true);
         for (int i=0;i<storages.size();i++){

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.HorizontalScrollView;
@@ -62,6 +63,15 @@ public class GraphView extends LinearLayout {
         addView(horizontalScrollView);
     }
 
+    private   void scrollTo(final int x){
+        horizontalScrollView.post(new Runnable() {
+            @Override
+            public void run() {
+                horizontalScrollView.scrollTo(x,0);
+            }
+        });
+    }
+
     private void allocation() {
         int max = (int) Tool.getMax(dateStorages);
         int min = (int) Tool.getMin(dateStorages);
@@ -74,9 +84,10 @@ public class GraphView extends LinearLayout {
         this.allocation();
         this.converter();
         this.converterAnnotate();
-        this.linearLayout.addView(curveView,new ViewGroup.LayoutParams(dayWidth*dateStorages.size(),dayHeight*7));
+        this.linearLayout.addView(curveView,new ViewGroup.LayoutParams(dateStorages.size()<10?10*dayWidth:dateStorages.size()*dayWidth,dayHeight*7));
         this.curveView.setDateStorage(dateStorages,curveStorages,dayWidth,dayHeight,dayAllHeight,dayWidthLift,dayHeightTop);
         this.normalView.setNormalStorage(annotateStorages);
+        scrollTo(dateStorages.size()<10?0:dateStorages.size()*dayWidth);
     }
 
     private void converter() {

@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         graphView = new GraphView(this);
         setContentView(graphView);
-        List<DateStorage> dateStorages = new ArrayList<>();
+        final List<DateStorage> dateStorages = new ArrayList<>();
         DateStorage dateStorage;
         ArrayList<Double> arrayList = new ArrayList<>();
         arrayList.add(40.5);

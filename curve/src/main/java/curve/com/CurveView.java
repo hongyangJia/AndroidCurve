@@ -126,7 +126,7 @@ public class CurveView extends View {
         if (position + 1 >= curveStorages.size()) return;
         paint.reset();
         paint.setStrokeWidth(STROKE_WIDTH);
-        setPaintParameter(paint, new float[]{8, 8}, Color.RED);
+        setPaintParameter(paint, new float[]{0,0}, Color.RED);
         path.moveTo(curveStorages.get(position).locationX, curveStorages.get(position).locationY);
         path.lineTo(curveStorages.get(position + 1).locationX, curveStorages.get(position + 1).locationY);
         canvas.drawPath(path, paint);
@@ -160,7 +160,6 @@ public class CurveView extends View {
         paint.setAntiAlias(true);
         canvas.drawBitmap(bitmap, currentValue.locationX - bitmap.getHeight(), currentValue.locationY - bitmap.getHeight(), paint);
         canvas.drawText(String.valueOf(currentValue.value), currentValue.locationX - TWENTY_SIX, currentValue.locationY - bitmap.getHeight() / 2, paint);
-
     }
 
     private void setPaintParameter(Paint paintParameter, float[] floats, int colors) {
