@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         graphView = new GraphView(this);
         setContentView(graphView);
+
         final List<DateStorage> dateStorages = new ArrayList<>();
         DateStorage dateStorage;
         ArrayList<Double> arrayList = new ArrayList<>();
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         arrayList.add(51.5);
         arrayList.add(41.5);
         arrayList.add(41.5);
+
         for (int i=0;i<arrayList.size();i++){
              dateStorage = new DateStorage();
              dateStorage.value =arrayList.get(i);
@@ -47,7 +49,9 @@ public class MainActivity extends AppCompatActivity {
              dateStorage.date = edit(demo);
              dateStorages.add(dateStorage);
         }
+
         graphView.setDateStorage(dateStorages);
+
     }
 
     private  String   edit(String date){
