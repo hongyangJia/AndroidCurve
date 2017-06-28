@@ -33,6 +33,8 @@ public class GraphView extends LinearLayout {
     private int dayHeightTop;
     private double low = 0;
     private double high = 0;
+    private int circle = 10;
+
 
     private List<DateStorage> dateStorages;
     private List<CurveStorage> curveStorages;
@@ -88,7 +90,7 @@ public class GraphView extends LinearLayout {
         this.converter();
         this.converterAnnotate();
         this.linearLayout.addView(curveView,new ViewGroup.LayoutParams(dateStorages.size()<10?10*dayWidth:dateStorages.size()*dayWidth,dayHeight*6));
-        this.curveView.setDateStorage(dateStorages,curveStorages,dayWidth,dayHeight,dayAllHeight,dayWidthLift,dayHeightTop);
+        this.curveView.setDateStorage(dateStorages,curveStorages,dayWidth,dayHeight,dayAllHeight,dayWidthLift,dayHeightTop,circle);
         this.normalView.setNormalStorage(annotateStorages);
         scrollTo(dateStorages.size()<10?0:dateStorages.size()*dayWidth);
     }
@@ -127,8 +129,9 @@ public class GraphView extends LinearLayout {
         dayWidth = widthPixels / SCREEN_WIDTH_ALLOCATION;
         dayHeight = (int) (heightPixels * 0.3 / ROW);
         dayAllHeight =dayHeight*ROW;
-        dayWidthLift = (int) (dayWidth*0.37);
+        dayWidthLift = (int) (dayWidth*0.6);
         dayHeightTop=dayHeight/2;
+        circle=metrics.widthPixels>=1080?10:8;
     }
 
     private void clear(List<?> objects){

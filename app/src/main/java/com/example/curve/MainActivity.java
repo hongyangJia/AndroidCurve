@@ -46,11 +46,10 @@ public class MainActivity extends AppCompatActivity {
         arrayList.add(71.5);
 
 
-
         for (int i=0;i<arrayList.size();i++){
              dateStorage = new DateStorage();
              dateStorage.value =arrayList.get(i);
-             String demo= "2017-06-"+i+1;
+             String demo= "2017-06-"+i;
              dateStorage.date = edit(demo);
              dateStorages.add(dateStorage);
         }
@@ -61,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
     private  String   edit(String date){
         date = date.substring(5,date.length());
+        date=date.replace("-","/");
         Log.e("date",date);
         return date;
     }

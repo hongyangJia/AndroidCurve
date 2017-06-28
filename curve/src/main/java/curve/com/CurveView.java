@@ -32,13 +32,13 @@ public class CurveView extends View {
     private static final int STROKE_WIDTH = 4;
     private static final int COLOR = Color.parseColor("#ffff0000");
     private static final int ALPHA = 100;
-    private static final int CIRCLE = 10;
 
     private int dayWidth;
     private int dayHeight;
     private int dayAllHeight;
     private int dayWidthLift;
     private int dayHeightTop;
+    private int circle;
     private float[] intervals = {8, 8};
     private List<DateStorage> dateStorages;
     private List<CurveStorage> curveStorages;
@@ -54,7 +54,7 @@ public class CurveView extends View {
         super(context, attrs);
     }
 
-    public void setDateStorage(List<DateStorage> dateStorages, List<CurveStorage> curveStorages, int dayWidth, int dayHeight, int dayAllHeight, int dayWidthLift,int dayHeightTop) {
+    public void setDateStorage(List<DateStorage> dateStorages, List<CurveStorage> curveStorages, int dayWidth, int dayHeight, int dayAllHeight, int dayWidthLift,int dayHeightTop,int circle) {
         this.dateStorages = dateStorages;
         this.curveStorages = curveStorages;
         this.dayWidth = dayWidth;
@@ -62,6 +62,7 @@ public class CurveView extends View {
         this.dayAllHeight = dayAllHeight;
         this.dayWidthLift = dayWidthLift;
         this.dayHeightTop=dayHeightTop;
+        this.circle =circle;
         invalidate();
     }
 
@@ -105,10 +106,10 @@ public class CurveView extends View {
         Tool.nullPointerException(dateStorages,"onDrawText : null");
         paint.reset();
         paint.setColor(Color.BLACK);
-        paint.setTextSize((float) ((dayWidth+30)/4.5));
+        paint.setTextSize((float) ((dayWidth+30)/5));
         paint.setAntiAlias(true);
         for (int i = DUFULET; i < dateStorages.size(); i++) {
-            canvas.drawText(dateStorages.get(i).date, dayWidth * i +15, (float) (dayHeight * ROW + dayHeight * 0.4 + dayHeightTop), paint);
+            canvas.drawText(dateStorages.get(i).date, dayWidth * i +dayWidthLift/2, (float) (dayHeight * ROW + dayHeight * 0.4 + dayHeightTop), paint);
         }
     }
 
@@ -157,10 +158,13 @@ public class CurveView extends View {
         if (currentValue == null) return;
         paint.reset();
         paint.setColor(Color.RED);
-        paint.setTextSize((dayWidth+30)/3);
+        paint.setTextSize((dayWidth+30)/4);
         paint.setAntiAlias(true);
-        canvas.drawBitmap(bitmap, Float.parseFloat(String.valueOf(currentValue.locationX - bitmap.getHeight())),Float.parseFloat(String.valueOf( currentValue.locationY - bitmap.getHeight())), paint);
-        canvas.drawText(String.valueOf(currentValue.value),Float.parseFloat(String.valueOf( currentValue.locationX - TWENTY_SIX)),Float.parseFloat(String.valueOf(currentValue.locationY - bitmap.getHeight() / 2)) , paint);
+        String value=String.valueOf(currentValue.value);
+        float width = bitmap.getWidth()-paint.measureText(value);
+        width=width/2;
+        canvas.drawBitmap(bitmap, Float.parseFloat(String.valueOf(currentValue.locationX - bitmap.getHeight())),Float.parseFloat(String.valueOf( currentValue.locationY - bitmap.getHeight()-2)), paint);
+        canvas.drawText(String.valueOf(currentValue.value),Float.parseFloat(String.valueOf(currentValue.locationX - width)),Float.parseFloat(String.valueOf(currentValue.locationY - bitmap.getHeight() / 2)) , paint);
     }
 
     private void setPaintParameter(Paint paintParameter, float[] floats, int colors) {
@@ -174,7 +178,7 @@ public class CurveView extends View {
         paintParameter.reset();
         paintParameter.setAntiAlias(true);
         paintParameter.setColor(Color.RED);
-        canvas.drawCircle(Float.parseFloat(String.valueOf(curveStorages.get(position).locationX)), Float.parseFloat(String.valueOf(curveStorages.get(position).locationY)), CIRCLE, paintParameter);
+        canvas.drawCircle(Float.parseFloat(String.valueOf(curveStorages.get(position).locationX)), Float.parseFloat(String.valueOf(curveStorages.get(position).locationY)), circle, paintParameter);
     }
 
     private void viewValue(double locationX) {
