@@ -163,6 +163,9 @@ public class CurveView extends View {
         String value=String.valueOf(currentValue.value);
         float width = bitmap.getWidth()-paint.measureText(value);
         width=width/2;
+        if (currentValue.value==null)return;
+        if (currentValue.locationX==null)return;
+        if (currentValue.locationY==null)return;
         canvas.drawBitmap(bitmap, Float.parseFloat(String.valueOf(currentValue.locationX - bitmap.getHeight())),Float.parseFloat(String.valueOf( currentValue.locationY - bitmap.getHeight()-2)), paint);
         canvas.drawText(String.valueOf(currentValue.value),Float.parseFloat(String.valueOf(currentValue.locationX - width)),Float.parseFloat(String.valueOf(currentValue.locationY - bitmap.getHeight() / 2)) , paint);
     }
