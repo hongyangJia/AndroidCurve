@@ -12,6 +12,7 @@ import android.graphics.Path;
 import android.graphics.Shader;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -23,7 +24,7 @@ import java.util.List;
 
 public class CurveView extends View {
 
-    private static final int ROW = 6;
+    private static final int ROW = 5;
     private static final int DUFULET = 0;
     private static final int TEXT_SIZE = 32;
     private static final int TWENTY_SIX = 45;
