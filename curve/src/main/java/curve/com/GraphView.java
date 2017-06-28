@@ -76,7 +76,7 @@ public class GraphView extends LinearLayout {
                 Log.e("scrollTo",x+"run");
                 horizontalScrollView.scrollTo(x,0);
             }
-        },2000);
+        },200);
     }
 
     private void allocation() {
