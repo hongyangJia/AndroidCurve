@@ -69,11 +69,9 @@ public class GraphView extends LinearLayout {
     }
 
     private   void scrollTo(final int x){
-        Log.e("scrollTo",x+"");
         horizontalScrollView.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Log.e("scrollTo",x+"run");
                 horizontalScrollView.scrollTo(x,0);
             }
         },200);
@@ -91,6 +89,7 @@ public class GraphView extends LinearLayout {
         this.allocation();
         this.converter();
         this.converterAnnotate();
+        this.linearLayout.removeAllViews();
         this.linearLayout.addView(curveView,new ViewGroup.LayoutParams(dateStorages.size()<10?10*dayWidth:dateStorages.size()*dayWidth,dayHeight*6));
         this.curveView.setDateStorage(dateStorages,curveStorages,dayWidth,dayHeight,dayAllHeight,dayWidthLift,dayHeightTop,circle);
         this.normalView.setNormalStorage(annotateStorages);
