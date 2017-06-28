@@ -70,13 +70,13 @@ public class GraphView extends LinearLayout {
 
     private   void scrollTo(final int x){
         Log.e("scrollTo",x+"");
-        horizontalScrollView.post(new Runnable() {
+        horizontalScrollView.postDelayed(new Runnable() {
             @Override
             public void run() {
                 Log.e("scrollTo",x+"run");
                 horizontalScrollView.scrollTo(x,0);
             }
-        });
+        },2000);
     }
 
     private void allocation() {
